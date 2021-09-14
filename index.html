@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/ddff044981.js" src="index.js" crossorigin="anonymous"></script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <div class="counter-container">
+    <i class="fas fa-mug-hot fa-4x"></i>
+    <div class="counter" data-target="4000"></div>
+    <span>Project completed</span>
+  </div>
+
+<span>
+
+  <div class="counter-container">
+    <i class="fas fa-users fa-4x"></i>
+    <div class="counter" data-target="1500"></div>
+    <span>Happy Users </span>
+  </div>
+
+
+  <div class="counter-container">
+    <i class="fas fa-tasks fa-4x"></i>
+    <div class="counter" data-target="500"></div>
+    <span> Ongoing Projects</span>
+  </div>
+
+
+<script>
+    
+const counters=document.querySelectorAll('.counter')
+counters.forEach((counter)=>{
+counter.innerHTML=0
+const updateCounter=()=>{
+    const targetCount=+counter.getAttribute('data-target')
+    console.log(targetCount)
+    const startingCount =Number(counter.innerHTML)
+    const incr=targetCount/100;
+
+    if(startingCount<targetCount){
+        counter.innerHTML=`${Math.round(startingCount+incr)}`
+        setTimeout(updateCounter,200)
+    }
+    else{
+        counter.innerHTML=targetCount
+    }
+}
+
+
+updateCounter()
+})
+</script>
+
+</body>
+</html>
